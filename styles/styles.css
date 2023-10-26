@@ -27,12 +27,32 @@
 
 /* Базовые стили для всей страницы */
 
+html {
+  height: 100%;
+}
+
 body {
+  height: 100%;
+  min-width: 1366px;
+  margin: 0;
   font-family: "Inter", "Arial", sans-serif;
   font-size: 16px;
   line-height: 22px;
   color: #2d3440;
 }
+
+.main-container {
+  flex-grow: 1;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  min-height: 100%;
+  width: 1170px;
+}
+
 .strawberry-theme {
   background-color: #feafc3;
 }
@@ -74,25 +94,62 @@ body {
 
 .navigation-social {
   list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
 /* Стили для шапки сайта */
+
+.header-navigation {
+  display: flex;
+}
 
 .page-header {
   line-height: 20px;
 }
 
-.list {
+.navigation-main {
   list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 550px;
 }
 
-.navigation-list {
+.navigation-user {
   list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+.navigation-wrapper {
+  max-width: 460px;
+  margin-left: auto;
+}
+
+.header-logo {
+  display: block;
+  margin: 0 16px 0 0;
 }
 
 .catalog-menu-list {
   list-style-type: none;
   background-color: #fcfcfc;
+  margin: 0;
+  padding: 0;
+  width: 135px;
+  border-radius: 4px;
 }
 
 .navigation-link {
@@ -101,7 +158,8 @@ body {
   text-align: center;
 }
 
-.navigation-text,.catalog-link {
+.navigation-text,
+.catalog-link {
   font-size: 14px;
 }
 
@@ -111,8 +169,19 @@ body {
 
 /* Стили для слайдера */
 
-.icecream-list, .navigation-leaf {
+.icecream-item {
+  display: flex;
+}
+
+.icecream-description {
+  width: 470px;
+}
+
+.icecream-list,
+.navigation-leaf {
   list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 .icecream-item-heading {
@@ -124,6 +193,11 @@ body {
 .icecream-item-description {
   font-size: 18px;
   line-height: 24px;
+}
+
+.slider-navigation {
+  display: flex;
+  justify-content: space-between;
 }
 
 /* Стили для блока социальных сетей */
@@ -138,11 +212,16 @@ body {
 
 .promo-list {
   list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
 }
 
 .promo-item {
   background-color: #ff7799;
   border-radius: 16px;
+  width: 570px;
 }
 
 .promo-item-title {
@@ -155,12 +234,18 @@ body {
 
 .catalog-list {
   list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 40px 30px;
+  flex-wrap: wrap;
 }
 
 .catalog-item {
   text-align: center;
   background-color: #fcfcfc;
   border-radius: 8px;
+  width: 270px;
 }
 
 .catalog-item-title,
@@ -175,7 +260,7 @@ body {
 }
 
 .add-to-cart {
-  background-color: #FF2F64;
+  background-color: #ff2f64;
   color: #fcfcfc;
 }
 
@@ -197,11 +282,19 @@ body {
 
 .advantages-list {
   list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 /* Стили для блога */
 
+.news-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
 .blog-anons {
+  width: 570px;
   border-radius: 16px;
   background-image: url("../images/serving.jpg");
   background-position: 50% 50%;
@@ -223,12 +316,14 @@ body {
 /* Стили для рассылки */
 
 .submission {
+  width: 570px;
   background-image: url("../images/e-mail.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 50%;
   border-radius: 16px;
   padding: 6px;
+  box-sizing: border-box;
 }
 
 .submission-container {
@@ -246,6 +341,7 @@ body {
 /* Стили для доставки */
 
 .delivery {
+  display: flex;
   border-radius: 16px;
   background-image: url("../images/delivery.jpg");
   background-position: 50% 50%;
@@ -253,10 +349,22 @@ body {
   background-size: cover;
 }
 
+.delivery-description {
+  width: 371px;
+  margin: 0 135px 0 100px;
+}
+
+.delivery-header {
+  font-size: 32px;
+  line-height: 46px;
+  font-weight: 900;
+}
+
 .delivery-form {
   border-radius: 8px;
   background-color: #fcfcfc;
   box-shadow: 0 15px 40px 0 rgba(45, 52, 64, 0.12);
+  width: 500px;
 }
 
 .delivery-text,
@@ -270,6 +378,21 @@ body {
 }
 
 /* Стили для контактов */
+
+.contact {
+  background-image: url("../images/address.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  border-radius: 16px;
+}
+
+.contacts-wrapper {
+  width: 343px;
+  border-radius: 8px;
+  background: #fcfcfc;
+  margin-left: 64px;
+}
 
 .contacts-address {
   font-style: normal;
@@ -304,6 +427,8 @@ body {
   color: inherit;
   text-decoration: none;
   list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 .breadcrumbs-link {
@@ -323,7 +448,43 @@ body {
   color: #2d3440;
 }
 
+.catalog-filter {
+  display: flex;
+  flex-wrap: wrap;
+  width: 823px;
+  margin: 0;
+  padding: 0;
+}
+
+.catalog-select-group {
+  width: 196px;
+  margin: 0 24px 0 0;
+  padding: 0;
+  border: none;
+}
+
+.catalog-filter-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.fatness-filter-group {
+  width: 603px;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.filler-filter-group {
+  width: 604px;
+  margin: 0 24px 0 0;
+  padding: 0;
+  border: none;
+}
+
 .show-button {
+  width: 185px;
   border-radius: 20px;
   border: 2px solid #fcfcfc;
   background-color: rgba(252, 252, 252, 0.30);
@@ -338,6 +499,8 @@ body {
 
 .pagination {
   list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 .pagination-link {
@@ -345,6 +508,8 @@ body {
   list-style-type: none;
   color: inherit;
   text-decoration: none;
+  margin: 0;
+  padding: 0;
 }
 
 .pagination-current {
@@ -359,8 +524,24 @@ body {
 
 /* Стили для футера */
 
+.page-footer {
+  display: flex;
+}
+
+.footer-social {
+  width: 144px;
+  margin-right: 219px;
+}
+
+.footer-author {
+  margin-left: auto;
+  max-width: 200px;
+}
+
 .footer-about-list {
   list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 .footer-about-link {
