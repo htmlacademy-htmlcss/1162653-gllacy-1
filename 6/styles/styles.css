@@ -53,10 +53,6 @@ body {
   width: 1170px;
 }
 
-.catalog-page-header {
-  margin-bottom: 32px;
-}
-
 .strawberry-theme {
   background-color: #feafc3;
 }
@@ -204,6 +200,7 @@ body {
   padding: 0;
   width: 135px;
   border-radius: 4px;
+  display: none;
 }
 
 .navigation-catalog-link {
@@ -596,9 +593,8 @@ body {
   box-shadow: 0 15px 40px 0 rgba(45, 52, 64, 0.12);
   width: 500px;
   margin: 64px 64px 64px 0;
-  padding: 40px 80px 42px 40px;
-  display: flex;
-  flex-direction: column;
+  padding: 40px 40px 42px 40px;
+  box-sizing: border-box;
 }
 
 .delivery-text {
@@ -609,6 +605,8 @@ body {
 
 .delivery-form-text {
   color: #565c66;
+  width: 380px;
+  margin: 0;
   padding: 0;
 }
 
@@ -663,15 +661,15 @@ body {
   background-position: 50% 50%;
   border-radius: 16px;
   margin-top: 80px;
-  display: flex;
+  padding: 64px 763px 64px 64px;
 }
 
 .contacts-wrapper {
   width: 343px;
   border-radius: 8px;
   background: #fcfcfc;
-  margin: 64px 763px 64px 64px;
   padding: 40px;
+  box-sizing: border-box;
 }
 
 .contacts-address {
@@ -722,6 +720,7 @@ body {
 .inner-header {
   display: flex;
   flex-direction: column;
+  margin-top: 32px;
 }
 
 .breadcrumbs {
@@ -785,8 +784,6 @@ body {
 }
 
 .catalog-filter {
-  display: flex;
-  flex-wrap: wrap;
   width: 823px;
   margin-bottom: 44px;
   padding: 0;
@@ -797,8 +794,6 @@ body {
   margin: 0 24px 0 0;
   padding: 0;
   border: none;
-  display: flex;
-  flex-direction: column;
 }
 
 .catalog-filter-list {
