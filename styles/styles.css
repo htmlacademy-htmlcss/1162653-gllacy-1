@@ -351,8 +351,6 @@ body {
 .icecream-item {
   display: flex;
   flex-wrap: wrap;
-  width: 100px;
-  height: 150px;
   opacity: 0.4;
   order: 1;
 }
@@ -425,7 +423,7 @@ body {
   flex-grow: 1;
   justify-content: space-between;
   align-items: center;
-  padding-top: 14px;
+  padding-top: 26px;
 }
 
 .active-slide .icecream-picture-container {
@@ -438,7 +436,7 @@ body {
   width: 100px;
   height: 100px;
   left: 0;
-  top: 36px;
+  top: 50px;
   border-radius: 50%;
   background-repeat: no-repeat;
   z-index: -1;
