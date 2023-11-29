@@ -53,15 +53,15 @@ body {
   width: 1170px;
 }
 
-.strawberry-theme {
+.strawberry-body-theme {
   background-color: #feafc3;
 }
 
-.cream-theme {
+.banana-body-theme {
   background-color: #69a9ff;
 }
 
-.caramel-theme {
+.caramel-body-theme {
   background-color: #fcc850;
 }
 
@@ -139,7 +139,7 @@ body {
   border-radius: 4px;
   outline: 1px solid #b9b9b9;
   border: none;
-  background-color: #fff;
+  background-color: #ffffff;
   font-family: "Inter", sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -151,7 +151,7 @@ body {
 .input-field:required {
   outline: 1px solid #b9b9b9;
   border: none;
-  background-color: #fff;
+  background-color: #ffffff;
 }
 
 .input-field:invalid {
@@ -162,7 +162,7 @@ body {
 .input-field:required {
   outline: 1px solid #b9b9b9;
   border: none;
-  background-color: #fff;
+  background-color: #ffffff;
 }
 
 /* Стили для шапки сайта */
@@ -351,6 +351,8 @@ body {
 .icecream-item {
   display: flex;
   flex-wrap: wrap;
+  opacity: 0.4;
+  order: 1;
 }
 
 .icecream-description {
@@ -359,9 +361,60 @@ body {
 }
 
 .icecream-list {
+  display: flex;
+  align-items: center;
   list-style-type: none;
   margin: 0;
   padding: 0;
+}
+
+.icecream-item > .icecream-description {
+  display: none;
+}
+
+.active-slide {
+  width: 873px;
+  min-width: 873px;
+  height: 528px;
+  opacity: 1;
+  order: 0;
+}
+
+.caramel-slider-item.active-slide {
+  width: 892px;
+}
+
+.active-slide > .icecream-description {
+  display: block;
+}
+
+.strawberry-slider-item .icecream-description {
+  padding-right: 5px;
+}
+
+.banana-slider-item .icecream-description {
+  padding-right: 21px;
+}
+
+.caramel-slider-item .icecream-description {
+  padding-right: 2px;
+}
+
+
+.icecream-item {
+  margin-right: 41px;
+}
+
+.icecream-item:not(.active-slide) + .icecream-item {
+  margin-right: 0;
+}
+
+.icecream-list .icecream-item.active-slide {
+  margin-right: 56px;
+}
+
+.caramel-slider-item.active-slide.icecream-item {
+  margin-right: 37px;
 }
 
 .icecream-picture-container {
@@ -370,20 +423,81 @@ body {
   flex-grow: 1;
   justify-content: space-between;
   align-items: center;
+  padding-top: 26px;
+}
+
+.active-slide .icecream-picture-container {
   padding-top: 21px;
 }
 
 .icecream-picture-container::before {
   content: "";
   position: absolute;
-  width: 327px;
-  height: 312px;
+  width: 100px;
+  height: 100px;
   left: 0;
-  top: 98px;
+  top: 50px;
   border-radius: 50%;
-  background-color: #ffcbd8;
   background-repeat: no-repeat;
   z-index: -1;
+}
+
+.strawberry-slider-item.active-slide .icecream-picture-container {
+  width: 327px;
+}
+
+.banana-slider-item.active-slide .icecream-picture-container {
+  width: 312px;
+}
+
+.caramel-slider-item .active-slide .icecream-picture-container {
+  width: 350px;
+}
+
+.strawberry-slider-item.active-slide .icecream-main-picture {
+  width: 327px;
+  height: 507px;
+}
+
+.banana-slider-item.active-slide .icecream-main-picture {
+  width: 312px;
+  height: 507px;
+}
+
+.caramel-slider-item.active-slide .icecream-main-picture {
+  width: 350px;
+  height: 507px;
+}
+
+.active-slide .icecream-picture-container::before {
+  width: 312px;
+  height: 312px;
+  top: 121px;
+}
+
+.strawberry-slider-item.active-slide .icecream-picture-container::before {
+  width: 327px;
+}
+
+.active-slide.caramel-slider-item .icecream-picture-container::before {
+  left: 20px;
+}
+
+.strawberry-slider-theme .icecream-picture-container::before {
+  background-color: #ffcbd8;
+}
+
+.banana-slider-theme .icecream-picture-container::before {
+  background-color: #9fc8ff;
+}
+
+.caramel-slider-theme .icecream-picture-container::before {
+  background-color: #fcdc92;
+}
+
+.icecream-main-picture {
+  width: 100px;
+  height: 150px;
 }
 
 .icecream-item-heading {
@@ -409,22 +523,6 @@ body {
   width: 139px;
 }
 
-.icecream-slider-container {
-  opacity: 0.4;
-}
-
-.icecream-slider-container::before {
-  content: "";
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  top: 229px;
-  border-radius: 50%;
-  background-color: #ffcbd8;
-  background-repeat: no-repeat;
-  z-index: -1;
-}
-
 .slider-navigation {
   display: flex;
   justify-content: space-between;
@@ -445,6 +543,12 @@ body {
   position: absolute;
   left: 525px;
   top: 258px;
+}
+
+.banana-slider-theme + .slider-buttons-container,
+.caramel-slider-theme + .slider-buttons-container {
+  width: 350px;
+  left: 542px;
 }
 
 .button-slider {
@@ -604,10 +708,6 @@ body {
 .social-link:focus {
   background-color: #2d3440;
   outline: 2px solid #2d3440;
-}
-
-.inactive-slide {
-  display: none;
 }
 
 /* Стили для блока промо */
