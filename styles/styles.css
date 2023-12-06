@@ -164,12 +164,12 @@ body {
   outline: 2px solid #2d3440;
 }
 
-.input-field:invalid {
+.input-field-invalid {
   outline: 1px solid #ea5454;
 }
 
-.input-field:invalid:hover {
-  outline: 2px solid #EA5454;
+.input-field-invalid:hover {
+  outline: 2px solid #ea5454;
 }
 
 .input-field:disabled {
@@ -1803,7 +1803,7 @@ body {
 }
 
 .apply-button:focus {
-  outline: 2px solid var(--basic-extra-dark, #2D3440);
+  outline: 2px solid #2d3440;
   background-color: rgba(252, 252, 252, 0.30);
 }
 
