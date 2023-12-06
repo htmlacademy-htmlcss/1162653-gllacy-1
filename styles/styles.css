@@ -91,7 +91,6 @@ body {
   border: none;
   padding: 12px 32px;
   font-family: inherit;
-  font-size: 15px;
   font-weight: 700;
   line-height: 20px;
   text-align: center;
@@ -164,14 +163,6 @@ body {
   outline: 2px solid #2d3440;
 }
 
-.input-field-invalid {
-  outline: 1px solid #ea5454;
-}
-
-.input-field-invalid:hover {
-  outline: 2px solid #ea5454;
-}
-
 .input-field:disabled {
   outline: 1px solid #b9b9b9;
   background: #e7e7e7;
@@ -181,6 +172,17 @@ body {
 .input-field:disabled:hover {
   opacity: 1;
 }
+
+/* Классы для активации ошибки в поле ввода */
+
+.input-field-invalid {
+  outline: 1px solid #ea5454;
+}
+
+.input-field-invalid:hover {
+  outline: 2px solid #ea5454;
+}
+
 
 /* Стили для шапки сайта */
 
@@ -354,22 +356,15 @@ body {
 .navigation-catalog {
   position: absolute;
   top: 0;
+  left: 0;
   z-index: 1;
   display: none;
 }
 
-.navigation-catalog::before {
-  content: "";
-  position: absolute;
-  border-radius: 30px;
-  background-color: #ff4a78;
-  border: none;
-  width: 117px;
-  height: 36px;
-}
+/* Классы для состояния ссылок меню при открытом меню или поповерах */
 
 
-.navigation-catalog .navigation-link-catalog {
+.popover-open-button {
   border-radius: 30px;
   background-color: #ff4a78;
   color: #fcfcfc;
@@ -378,16 +373,28 @@ body {
   border: none;
 }
 
-.navigation-catalog .navigation-link-catalog:hover {
+.popover-open-button:hover {
+  background-color: #ff4a78;
   opacity: 0.6;
 }
 
-.navigation-catalog .navigation-link-catalog:active {
+.popover-open-button:active {
+  background-color: #ff4a78;
   opacity: 0.3;
 }
 
-.navigation-catalog .navigation-link-catalog:focus {
+.popover-open-button:focus {
+  background-color: #ff4a78;
   outline: 2px solid #000000;
+}
+
+.navigation-link-catalog.popover-open-button .navigation-icon{
+  color: #fcfcfc;
+  transform: rotate(180deg);
+}
+
+.navigation-user-link.popover-open-button .navigation-icon{
+  color: #fcfcfc;
 }
 
 
@@ -872,6 +879,10 @@ body {
   padding: 0;
 }
 
+.promo-item .order-button {
+  font-size: 15px;
+}
+
 /* Стили для карточек товаров */
 
 .popular-icecream {
@@ -974,6 +985,7 @@ body {
 .add-to-cart-button:disabled {
   background-color: #b9b9b9;
   color: #565c66;
+  outline: none;
 }
 
 .add-to-cart-icon {
@@ -1995,18 +2007,6 @@ body {
   display: block;
 }
 
-.popover-close-button:hover {
-  opacity: 0.6;
-}
-
-.popover-close-button:active {
-  opacity: 0.3;
-}
-
-.popover-close-button:focus {
-  outline: 2px solid #000000;
-}
-
 /* Поповер для корзины без товаров */
 
 .popover-empy-cart {
@@ -2015,17 +2015,6 @@ body {
   padding-bottom: 48px;
   top: 40px;
   right: 0;
-}
-
-.popover-empy-cart::before {
-  content: "";
-  position: absolute;
-  top: -40px;
-  right: 0;
-  border-radius: 30px;
-  background-color: #ff4a78;
-  width: 140px;
-  height: 32px;
 }
 
 .popover-empy-cart .popover-title {
@@ -2130,43 +2119,6 @@ body {
   margin-bottom: 10px;
 }
 
-.popover-close-button {
-  position: absolute;
-  top: -40px;
-  right: 0;
-  border-radius: 30px;
-  background-color: #ff4a78;
-  color: #fcfcfc;
-  font-family: inherit;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 20px;
-  border: none;
-}
-
-.popover-cart::before {
-  content: "";
-  position: absolute;
-  top: -40px;
-  right: 0;
-  border-radius: 30px;
-  background-color: #ff4a78;
-  width: 115px;
-  height: 32px;
-}
-
-.popover-text-button {
-  padding: 6px 16px;
-  border-radius: 30px;
-}
-
-.popover-cart-button {
-  padding-left: 38px;
-  background-image: url("../images/icons/card-popover.svg");
-  background-repeat: no-repeat;
-  background-position: 16px center;
-}
-
 /* Поповер поиска */
 
 .popover-search {
@@ -2176,39 +2128,8 @@ body {
   right: 0;
 }
 
-.close-search-button {
-  width: 32px;
-  background-color: #ff4a78;
-}
-
-.popover-search::before {
-  content: "";
-  position: absolute;
-  top: -40px;
-  right: 0;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background-color: #ff4a78;
-}
-
 .search-input {
   width: 324px;
-}
-
-.close-search-button {
-  display: block;
-  box-sizing: border-box;
-  width: 32px;
-  height: 32px;
-  padding: 8px;
-  border-radius: 50%;
-  top: -40px;
-  right: 0;
-}
-
-.close-search-button .navigation-icon {
-  color: #fcfcfc;
 }
 
 /* Поповер с входом на сайт */
@@ -2222,24 +2143,6 @@ body {
 
 .auth-form-field {
   width: 324px;
-}
-
-.popover-enter-button {
-  padding-left: 38px;
-  background-image: url("../images/icons/enter-popover.svg");
-  background-repeat: no-repeat;
-  background-position: 16px center;
-}
-
-.popover-enter::before {
-  content: "";
-  position: absolute;
-  top: -40px;
-  right: 0;
-  width: 88px;
-  height: 32px;
-  border-radius: 30px;
-  background-color: #ff4a78;
 }
 
 .auth-buttons-wrapper {
