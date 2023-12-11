@@ -503,10 +503,8 @@ body {
   margin-bottom: 12px;
 }
 
-
 .icecream-list {
   display: flex;
-  align-items: center;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -544,11 +542,11 @@ body {
   padding-right: 2px;
 }
 
-.icecream-item:not(.active-slide) + .icecream-item {
+.icecream-item:not(.active-slide) + .icecream-item:not(.active-slide) {
   margin-right: 0;
 }
 
-.icecream-list .icecream-item.active-slide {
+.icecream-item.active-slide {
   margin-right: 56px;
 }
 
@@ -563,6 +561,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding-top: 26px;
+  max-height: 507px;
 }
 
 .active-slide .icecream-picture-container {
@@ -575,7 +574,6 @@ body {
   width: 100px;
   height: 100px;
   left: 0;
-  top: 50px;
   border-radius: 50%;
   background-repeat: no-repeat;
   z-index: -1;
@@ -587,10 +585,6 @@ body {
 
 .banana-slider-item.active-slide .icecream-picture-container {
   width: 312px;
-}
-
-.caramel-slider-item .active-slide .icecream-picture-container {
-  width: 350px;
 }
 
 .strawberry-slider-item.active-slide .icecream-main-picture {
@@ -611,7 +605,6 @@ body {
 .active-slide .icecream-picture-container::before {
   width: 312px;
   height: 312px;
-  top: 121px;
 }
 
 .strawberry-slider-item.active-slide .icecream-picture-container::before {
@@ -679,6 +672,15 @@ body {
   left: 525px;
   top: 258px;
 }
+
+/* Дополнительные классы для изменения ширины и расположения кнопок при  изменении слайдов */
+
+.banana-slider-buttons,
+.caramel-slider-buttons {
+  width: 350px;
+  left: 542px;
+}
+
 
 .banana-slider-theme + .slider-buttons-container,
 .caramel-slider-theme + .slider-buttons-container {
@@ -1152,6 +1154,7 @@ body {
   width: 570px;
   border-radius: 16px;
   background-image: url("../images/serving.jpg");
+  background-color: #ff7799;
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -1191,12 +1194,12 @@ body {
   margin: 0;
   padding: 6px;
   display: flex;
+  flex-wrap: wrap;
   box-sizing: border-box;
 }
 
 .submission-container {
   background-color: #ffffff;
-  align-self: center;
   border-radius: 16px;
   padding: 26px;
   width: 506px;
@@ -1270,6 +1273,7 @@ body {
   display: flex;
   border-radius: 16px;
   background-image: url("../images/delivery.jpg");
+  background-color: #ff7799;
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -1299,6 +1303,7 @@ body {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  align-self: start;
 }
 
 .delivery-text {
@@ -1424,6 +1429,7 @@ body {
 
 .contact {
   background-image: url("../images/address.jpg");
+    background-color: #ff7799;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 50%;
@@ -1762,10 +1768,16 @@ body {
   background-image: url("../images/icons/checkbox-false.svg");
   background-repeat: no-repeat;
   background-position: center;
+  display: block;
 }
 
-.control-input[type="checkbox"] + .control-mark:hover {
+.control-input[type="checkbox"] + .control-mark:hover,
+.control-input[type="checkbox"] + .control-mark:active {
   background-image: url("../images/icons/checkbox-false-hover.svg");
+}
+
+.control-input[type="checkbox"]:focus-visible + .control-mark {
+  background-image: url("../images/icons/checkbox-false-focus.svg");
 }
 
 .control-input[type="checkbox"] + .control-mark:disabled {
@@ -1776,10 +1788,16 @@ body {
   background-image: url("../images/icons/checkbox-true.svg");
   background-repeat: no-repeat;
   background-position: center;
+  display: block;
 }
 
-.control-input[type="checkbox"]:checked + .control-mark:hover {
+.control-input[type="checkbox"]:checked + .control-mark:hover,
+.control-input[type="checkbox"]:checked + .control-mark:active {
   background-image: url("../images/icons/checkbox-true-hover.svg");
+}
+
+.control-input[type="checkbox"]:checked:focus-visible + .control-mark {
+  background-image: url("../images/icons/checkbox-true-focus.svg");
 }
 
 .control-input[type="checkbox"]:checked + .control-mark:disabled {
@@ -1790,10 +1808,16 @@ body {
   background-image: url("../images/icons/radio-false.svg");
   background-repeat: no-repeat;
   background-position: center;
+  display: block;
 }
 
-.control-input[type="radio"] + .control-mark:hover {
+.control-input[type="radio"] + .control-mark:hover,
+.control-input[type="radio"] + .control-mark:active {
   background-image: url("../images/icons/radio-false-hover.svg");
+}
+
+.control-input[type="radio"]:focus-visible + .control-mark {
+  background-image: url("../images/icons/radio-false-focus.svg");
 }
 
 .control-input[type="radio"] + .control-mark:disabled {
@@ -1804,16 +1828,21 @@ body {
   background-image: url("../images/icons/radio-true.svg");
   background-repeat: no-repeat;
   background-position: center;
+  display: block;
 }
 
-.control-input[type="radio"]:checked + .control-mark:hover {
+.control-input[type="radio"]:checked + .control-mark:hover,
+.control-input[type="radio"]:checked + .control-mark:active {
   background-image: url("../images/icons/radio-true-hover.svg");
+}
+
+.control-input[type="radio"]:checked:focus-visible + .control-mark {
+  background-image: url("../images/icons/radio-true-focus.svg");
 }
 
 .control-input[type="radio"]:checked + .control-mark:disabled {
   background-image: url("../images/icons/radio-true-disabled.svg");
 }
-
 
 .apply-button {
   display: inline-block;
