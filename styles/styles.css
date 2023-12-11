@@ -1181,9 +1181,6 @@ body {
   padding-bottom: 12px;
 }
 
-/* Стили для рассылки.
-Обертке задан flex, а внутреннему контейнеру align-self: center для избежания деформации при переполнении   */
-
 .submission {
   width: 570px;
   background-image: url("../images/e-mail.png");
@@ -1768,7 +1765,6 @@ body {
   background-image: url("../images/icons/checkbox-false.svg");
   background-repeat: no-repeat;
   background-position: center;
-  display: block;
 }
 
 .control-input[type="checkbox"] + .control-mark:hover,
@@ -1788,7 +1784,6 @@ body {
   background-image: url("../images/icons/checkbox-true.svg");
   background-repeat: no-repeat;
   background-position: center;
-  display: block;
 }
 
 .control-input[type="checkbox"]:checked + .control-mark:hover,
@@ -1808,7 +1803,6 @@ body {
   background-image: url("../images/icons/radio-false.svg");
   background-repeat: no-repeat;
   background-position: center;
-  display: block;
 }
 
 .control-input[type="radio"] + .control-mark:hover,
@@ -1828,7 +1822,6 @@ body {
   background-image: url("../images/icons/radio-true.svg");
   background-repeat: no-repeat;
   background-position: center;
-  display: block;
 }
 
 .control-input[type="radio"]:checked + .control-mark:hover,
