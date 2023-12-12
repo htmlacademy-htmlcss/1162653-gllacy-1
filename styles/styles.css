@@ -1505,12 +1505,16 @@ body {
 }
 
 .breadcrumbs-item {
-  padding-right: 16px;
+  padding-right: 20px;
   padding-left: 8px;
   background-image: url("../images/icons/double-arrow.svg");
   background-repeat: no-repeat;
   background-size: 8px 8px;
   background-position: center right;
+}
+
+.breadcrumbs-item:first-of-type {
+  padding-left: 0;
 }
 
 .breadcrumbs-item:last-child {
@@ -1531,7 +1535,7 @@ body {
 .catalog-select-wrapper {
   display: flex;
   margin-bottom: 16px;
-  align-items: end;
+  align-items: start;
 }
 
 .catalog-title {
@@ -1554,7 +1558,7 @@ body {
 }
 
 .select-control {
-  padding: 8px 63px 8px 13px;
+  padding: 8px 63px 8px 16px;
   padding-right: 40px;
   font-family: inherit;
   font-size: 14px;
@@ -1715,15 +1719,17 @@ body {
 .catalog-filter-fatness {
   list-style-type: none;
   margin: 0;
-  padding: 8px 24px;
+  padding: 8px 24px 0 24px;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .catalog-filter-filler {
   list-style-type: none;
   margin: 0;
-  padding: 9px 24px;
+  padding: 9px 24px 0 24px;
   display: flex;
+  flex-wrap: wrap;
   box-sizing: border-box;
 }
 
@@ -1749,8 +1755,16 @@ body {
   line-height: 20px;
 }
 
+.control-filter-item {
+  margin-bottom: 8px;
+}
+
 .control-filter-item:not(:last-child) {
   margin-right: 16px;
+}
+
+.catalog-filter-filler .control-filter-item {
+  margin-bottom: 9px;
 }
 
 .control-mark {
@@ -1989,11 +2003,17 @@ body {
 .footer-about-list {
   list-style-type: none;
   margin: 0;
+  margin-left: 8px;
   padding: 0;
   width: 356px;
   display: grid;
   grid-template-columns: 126px 182px;
-  gap: 8px 24px;
+  gap: 6px 24px;
+}
+
+.footer-about-item {
+  margin: 0;
+  padding: 0;
 }
 
 .footer-about-link {
@@ -2016,8 +2036,8 @@ body {
   height: 16px;
   background-image: url("../images/icons/heart.svg");
   background-repeat: no-repeat;
-  left: -18px;
-  top: 2px;
+  left: -23px;
+  top: 1px;
 }
 
 .author-text {
